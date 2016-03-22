@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"strings"
 
 	"github.com/awoodbeck/acrostic"
 	"github.com/jawher/mow.cli"
@@ -17,8 +18,9 @@ func init() {
 		defaultNum := 10
 		count := cmd.IntArg("WORDS", defaultWordCount, "words per passphrase, up to 10")
 		num := cmd.IntArg("NUMBER", defaultNum, "number of passphrases to generate, up to 100")
+		delim := cmd.StringOpt("d delim", " ", "delimiter to use between words")
 
-		cmd.Spec = "[WORDS] [NUMBER]"
+		cmd.Spec = "[OPTIONS] [WORDS] [NUMBER]"
 
 		cmd.Before = func() {
 			if *count < 1 || *num > 10 {
@@ -43,7 +45,7 @@ func init() {
 			for i := 0; i < *num; i++ {
 				phrases, err = acro.GenerateRandomAcrostics(*count, 1)
 				for _, p := range phrases {
-					fmt.Printf("%s\n\n", p)
+					fmt.Printf("%s\n\n", strings.Join(strings.Split(p, " "), *delim))
 				}
 			}
 		}
