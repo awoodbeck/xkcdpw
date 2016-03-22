@@ -1,5 +1,31 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": []
+	"package": [
+		{
+			"path": "github.com/awoodbeck/acrostic",
+			"revision": "82a23f62d1ac9bdea9bd37f078a24bdfedfb9f87",
+			"revisionTime": "2016-03-19T15:20:43-04:00"
+		},
+		{
+			"path": "github.com/awoodbeck/acrostic/assets",
+			"revision": "82a23f62d1ac9bdea9bd37f078a24bdfedfb9f87",
+			"revisionTime": "2016-03-19T15:20:43-04:00"
+		},
+		{
+			"path": "github.com/awoodbeck/acrostic/tools",
+			"revision": "82a23f62d1ac9bdea9bd37f078a24bdfedfb9f87",
+			"revisionTime": "2016-03-19T15:20:43-04:00"
+		},
+		{
+			"path": "github.com/awoodbeck/acrostic/words",
+			"revision": "82a23f62d1ac9bdea9bd37f078a24bdfedfb9f87",
+			"revisionTime": "2016-03-19T15:20:43-04:00"
+		},
+		{
+			"path": "github.com/jawher/mow.cli",
+			"revision": "9f92de29a56be1141123503ffe924d1d273586ec",
+			"revisionTime": "2015-11-15T12:49:13+01:00"
+		}
+	]
 }
