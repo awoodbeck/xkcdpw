@@ -23,8 +23,9 @@ func init() {
 
 		word := cmd.StringArg("WORD", defaultWord, "case-insensitive word from which to generate acrostical passphrases")
 		num := cmd.IntArg("NUMBER", defaultNum, "number of passphrases to generate, up to 100")
+		delim := cmd.StringOpt("d delim", " ", "delimiter to use between words")
 
-		cmd.Spec = "WORD [NUMBER]"
+		cmd.Spec = "[OPTIONS] WORD [NUMBER]"
 
 		cmd.Before = func() {
 			matched, err := regexp.MatchString("^[a-zA-Z]+$", *word)
@@ -53,7 +54,7 @@ func init() {
 
 			fmt.Println()
 			for _, p := range phrases {
-				fmt.Printf("%s\n\n", p)
+				fmt.Printf("%s\n\n", strings.Join(strings.Split(p, " "), *delim))
 			}
 		}
 	})
