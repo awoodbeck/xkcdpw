@@ -86,7 +86,7 @@ func (a *Acrostic) GenerateAcrostics(acro string, num int) ([]string, error) {
 				p = append(p, ' ')
 				fallthrough
 			default:
-				w, err = a.nouns.GetRandomWord(acro[j])
+				w, err = a.adjectives.GetRandomWord(acro[j])
 				if err != nil {
 					return o, err
 				}
