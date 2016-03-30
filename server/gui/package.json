@@ -2,6 +2,7 @@
   "name": "xkcdpw-client",
   "description": "Client side of the XKCDpw server",
   "version": "1.0.0",
+  "bugs": "https://github.com/awoodbeck/xkcdpw/issues",
   "scripts": {
     "postinstall": "npm run typings install",
     "lite": "lite-server",
@@ -17,7 +18,8 @@
     "es6-shim": "^0.35.0",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
-    "zone.js": "0.6.6"
+    "zone.js": "0.6.6",
+    "bootstrap": "^3.3.5"
   },
   "devDependencies": {
     "autoprefixer": "^6.2.1",
