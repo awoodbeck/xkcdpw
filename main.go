@@ -3,9 +3,10 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
+	"github.com/awoodbeck/xkcdpw/cmd"
+	"github.com/awoodbeck/xkcdpw/util"
 	"github.com/jawher/mow.cli"
 )
 
@@ -22,19 +23,13 @@ explanation.  This app goes a step further toward making passphrases
 memorable in that it uses a series of adjectives followed by an noun (see
 https://gfycat.com/about#links).`
 
+func init() {
+	// Register sub-commands.
+	cmd.RegisterAcrostic(app)
+	cmd.RegisterRandom(app)
+	cmd.RegisterServer(app)
+}
+
 func main() {
-	exitWhenError(app.Run(os.Args))
-}
-
-func cmdError(cmd *cli.Cmd, err error) {
-	fmt.Println("Error:", err)
-	cmd.PrintHelp()
-	os.Exit(1)
-}
-
-func exitWhenError(err error) {
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
+	util.ExitWhenError(app.Run(os.Args))
 }
