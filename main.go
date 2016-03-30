@@ -1,3 +1,5 @@
+//go:generate go run -tags=dev server/assets_generate.go
+
 package main
 
 import (
