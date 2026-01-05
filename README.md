@@ -33,22 +33,10 @@ go build
 
 ### Quick Start
 
-Generate a passphrase from a word:
+Generate passphrases with a random 4-letter word:
 
 ```bash
-xkcdpw acrostic hello
-```
-
-Output:
-
-```
-Handsome-Eager-Lively-Locked-Optimistic
-```
-
-Generate random passphrases:
-
-```bash
-xkcdpw random
+xkcdpw
 ```
 
 Output:
@@ -57,22 +45,53 @@ Output:
 Gorgeous-Radiant-Eager-Youthful
 ```
 
-### Acrostic Command
-
-Create passphrases where each word starts with letters from your input word.
-
-**Basic usage:**
+Generate a passphrase from a specific word:
 
 ```bash
-xkcdpw acrostic WORD [NUMBER] [flags]
+xkcdpw hello
 ```
 
-**Examples:**
+Output:
 
-Generate 5 passphrases from "security":
+```
+Handsome-Eager-Lively-Locked-Optimistic
+```
+
+Generate multiple passphrases:
 
 ```bash
-xkcdpw acrostic security 5
+xkcdpw 5
+```
+
+Output:
+
+```
+Brilliant-Zealous-Happy-Caring
+
+Bright-Zesty-Harmonious-Charming
+
+Bold-Zippy-Honest-Cheerful
+
+Beautiful-Zany-Helpful-Creative
+
+Brave-Zippy-Hearty-Calm
+```
+
+### Basic Syntax
+
+```bash
+xkcdpw [WORD] [NUMBER] [flags]
+```
+
+- **WORD** (optional): Word to use as acrostic. If omitted, a random 4-letter word is generated.
+- **NUMBER** (optional): Number of passphrases to generate (default: 10, max: 100)
+
+### Examples
+
+**Generate 5 passphrases from "security":**
+
+```bash
+xkcdpw security 5
 ```
 
 Output:
@@ -89,10 +108,10 @@ Solid-Exciting-Confident-Ultimate-Reliable-Inspiring-Trustworthy-Yummy
 Sturdy-Excellent-Calm-Useful-Robust-Interesting-Tremendous-Yellow
 ```
 
-Use spaces and lowercase (old style):
+**Use spaces and lowercase:**
 
 ```bash
-xkcdpw acrostic test 3 -d " " -c none
+xkcdpw test 3 -d " " -c none
 ```
 
 Output:
@@ -105,10 +124,10 @@ tough energetic simple tremendous
 tiny elegant sharp therapeutic
 ```
 
-Add random numbers for extra security:
+**Add random numbers for extra security:**
 
 ```bash
-xkcdpw acrostic pass 3 -n --number-min 100 --number-max 999
+xkcdpw pass 3 -n --number-min 100 --number-max 999
 ```
 
 Output:
@@ -121,65 +140,35 @@ Powerful-Amazing-Super-Safe-293
 Practical-Agile-Solid-Stable-621
 ```
 
-### Random Command
-
-Generate completely random acrostical passphrases.
-
-**Basic usage:**
+**Use underscores and all caps:**
 
 ```bash
-xkcdpw random [WORDS] [NUMBER] [flags]
-```
-
-**Examples:**
-
-Generate 3 passphrases with 5 words each:
-
-```bash
-xkcdpw random 5 3
+xkcdpw safe 2 -d "_" -c all
 ```
 
 Output:
 
 ```
-Brilliant-Zealous-Happy-Caring-Witty
+STELLAR_AMAZING_FANTASTIC_EXCELLENT
 
-Bright-Zesty-Harmonious-Charming-Wonderful
-
-Bold-Zippy-Honest-Cheerful-Warm
+SUPER_AWESOME_FABULOUS_EPIC
 ```
 
-Use underscores and all caps:
+**Add numbers at the beginning:**
 
 ```bash
-xkcdpw random 4 2 -d "_" -c all
+xkcdpw code 2 -n --number-min 1000 --number-max 9999 --number-position beginning
 ```
 
 Output:
 
 ```
-FANTASTIC_GREAT_AMAZING_PERFECT
+7284-Creative-Outstanding-Dependable-Excellent
 
-FABULOUS_GOOD_AWESOME_POWERFUL
-```
-
-Add numbers at the beginning:
-
-```bash
-xkcdpw random 4 2 -n --number-min 1000 --number-max 9999 --number-position beginning
-```
-
-Output:
-
-```
-7284-Energetic-Quick-Brave-Smart
-
-3901-Excellent-Quirky-Beautiful-Strong
+3901-Confident-Optimal-Daring-Energetic
 ```
 
 ### Available Flags
-
-Both commands support these flags:
 
 | Flag                | Short | Default | Description                                           |
 | ------------------- | ----- | ------- | ----------------------------------------------------- |
