@@ -1,6 +1,6 @@
 module github.com/awoodbeck/xkcdpw
 
-go 1.25.5
+go 1.27.4
 
 require (
 	github.com/awoodbeck/acrostic v1.0.1
